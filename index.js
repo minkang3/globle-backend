@@ -33,9 +33,8 @@ app.use(express.json());
 app.post('/generate-getaway', (req, res) => {
     console.log('[Post] generating new getaway locations');
     const data = generate_getaway(req);
-    res.send( {data} );
-    
-})
+    res.send( {data} ); 
+});
 
 // gets and returns a suitable 'getaway' location to user
 // takes user geolocation as parameter and returns suitable getaway
@@ -43,7 +42,7 @@ app.get('/get-getaway', (req, res) => {
     console.log('[Get] finding closest getaway location');
     const data = get_getaway(req);
     res.send( {data} );
-})
+});
 
 // getting the amount of people currently at the getaway location
 // needs to update a global variable 
@@ -58,16 +57,16 @@ app.post('/players-nearby', (req, res) => {
     console.log('[Post] update the nearby players for a getaway');
     const data = update_players_nearby(req);
     res.send( {data} );
-})
+});
 
 app.get('/picture', async (req, res) => {
     console.log('[Get] find a nearby picture of the location');
     const data = await get_pic(req);
     res.send({ data: data.data });
-})
+});
 
 // begin listening on the (local port)
 app.listen(PORT, () => {
     generate_getaway({app: app});
     console.log(`Globle Server started on port ${PORT}`);
-})
+});

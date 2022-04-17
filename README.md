@@ -1,4 +1,4 @@
-# Globle Server #
+# Globle Backend #
 ## Authors ##
 - Elliot Lee
 - Pushu Zhang

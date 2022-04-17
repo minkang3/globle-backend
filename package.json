@@ -1,5 +1,5 @@
 {
-  "name": "globle-server",
+  "name": "globle-backend",
   "version": "1.0.0",
   "description": "A server to manage the getaway application 'globle'. It will get a new location every day for the users as well as update how far the user is from their current location.",
   "main": "index.js",

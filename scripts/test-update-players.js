@@ -7,7 +7,7 @@ url = url + '/players-nearby';
 const config = {
     url: url,
     method: 'post',
-    data: {
+    params: {
         latitude: 33.9, 
         longitude: -118.2,
         increment: true //switch to false for decrement

@@ -7,7 +7,7 @@ url = url + '/get-getaway';
 const config = {
     url: url,
     method: 'get',
-    data: {
+    params: {
         latitude: 33.8, 
         longitude: -118.3
     }

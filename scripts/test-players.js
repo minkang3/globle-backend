@@ -7,7 +7,7 @@ url = url + '/players-nearby';
 const config = {
     url: url,
     method: 'get',
-    data: {
+    params: {
         latitude: 33.9, 
         longitude: -118.2
     }

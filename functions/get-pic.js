@@ -4,9 +4,8 @@ require('dotenv').config();
 const get_getaway = require('./get-getaway.js');
 
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
-const URL = process.env.URL;
+const URL = process.env.GOOGLE_URL;
 const RADIUS = 200; 
-
 
 if(!GOOGLE_API_KEY){ throw new Error('GOOGLE_API_KEY cannot be undefined'); }
 
@@ -20,18 +19,18 @@ module.exports = get_pic = async (req) => {
     
     const [latitude, longitude] = get_getaway(req);
 
+    const url = createURL(URL, latitude, longitude, RADIUS);
+
     const config = {
-        url: createURL(URL, latitude, longitude, RADIUS),
+        url: url,
         method: 'get',
         headers: {}
     }
 
-    const data = await axios(config);
-    // .then(res => {
-    //     return res;
-    // }).catch(err => {
-    //     console.error(err)
-    // })
-    return data;
+    const response = await axios(config);
+    
+    // console.log(response);
+
+    return response;
 
 }

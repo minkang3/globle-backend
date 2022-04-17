@@ -1,12 +1,12 @@
 module.exports = update_players_nearby = (req) => {
     const index = calc_index( req.app.locals.MAX_LON, req.app.locals.MAX_LAT,
         req.app.locals.MIN_LON, req.app.locals.MIN_LAT,
-        req.app.locals.DIVISION_FACTOR, req.body.longitude, 
-        req.body.latitude );
+        req.app.locals.DIVISION_FACTOR, req.query.longitude, 
+        req.query.latitude );
     
-    if (req.body.increment) {
+    if (req.query.increment == 'true') {
         req.app.locals.players_nearby[index]++;
-    } else {
+    } else if(req.app.locals.players_nearby[index] > 0) {
         req.app.locals.players_nearby[index]--;
     }
 

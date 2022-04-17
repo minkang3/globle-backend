@@ -15,8 +15,8 @@ module.exports = get_players_nearby = (req) => {
 
      const index = calc_index( req.app.locals.MAX_LON, req.app.locals.MAX_LAT,
                     req.app.locals.MIN_LON, req.app.locals.MIN_LAT,
-                    req.app.locals.DIVISION_FACTOR, req.body.longitude, 
-                    req.body.latitude );
+                    req.app.locals.DIVISION_FACTOR, req.query.longitude, 
+                    req.query.latitude );
 
      return {
          amount: req.app.locals.players_nearby[index],

@@ -3,13 +3,13 @@ const get_getaway =  require('./functions/get-getaway.js');
 const generate_getaway = require('./functions/generate-getaway.js');
 const get_players_nearby =  require('./functions/get-players-nearby.js');
 const update_players_nearby = require('./functions/update-players-nearby.js');
-require('dotenv').config();
+const get_pic = require('./functions/get-pic.js');
 const cors = require('cors')
+require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT;
-
 app.use(cors())
+const PORT = process.env.PORT;
 
 //we will contain our getaways within ach of these locations
 app.locals.MIN_LAT=33.694439;
@@ -41,8 +41,6 @@ app.post('/generate-getaway', (req, res) => {
 // takes user geolocation as parameter and returns suitable getaway
 app.get('/get-getaway', (req, res) => {
     console.log('[Get] finding closest getaway location');
-    console.log('REQ:');
-    console.log(req);
     const data = get_getaway(req);
     res.send( {data} );
 })
@@ -62,14 +60,14 @@ app.post('/players-nearby', (req, res) => {
     res.send( {data} );
 })
 
-app.get('/picture', (req, res) => {
+app.get('/picture', async (req, res) => {
     console.log('[Get] find a nearby picture of the location');
-    const data = get_pic(req);
-    res.send( {data} );
+    const data = await get_pic(req);
+    res.send({ data: data.data });
 })
 
 // begin listening on the (local port)
 app.listen(PORT, () => {
-    // generate_getaway({app: app});
+    generate_getaway({app: app});
     console.log(`Globle Server started on port ${PORT}`);
 })

@@ -26,12 +26,13 @@ module.exports = get_getaway = (req) => {
     const DELTA_LAT = LAT_DIST / DIV;
 
     // get lat and lon from http request (client side fulfills this correctly)
-    // const USER_LAT = req.app.body.latitude;
-    // const USER_LON = req.app.body.longitude;
-    console.log(req.body);
-
-    const USER_LAT = 33.8;
-    const USER_LON = -118.3;
+    const USER_LAT = parseFloat(req.query.latitude);
+    const USER_LON = parseFloat(req.query.longitude);
+    // console.log(req.query);
+    // console.log(USER_LAT);
+    // console.log(USER_LON);
+    // const USER_LAT = 33.8;
+    // const USER_LON = -118.3;
 
     // Here, I create a box around the user that is size of (2 * delta lat) by (2 * delta lon)
     var lat_start = USER_LAT - (DELTA_LAT);
@@ -73,7 +74,7 @@ module.exports = get_getaway = (req) => {
         }
     }
 
-    // console.log('Min is awesome');
-    // console.log
+    // console.log('Get Spot');
+    // console.log(best_spot);
     return best_spot;
 }

@@ -4,9 +4,12 @@ const generate_getaway = require('./functions/generate-getaway.js');
 const get_players_nearby =  require('./functions/get-players-nearby.js');
 const update_players_nearby = require('./functions/update-players-nearby.js');
 require('dotenv').config();
+const cors = require('cors')
 
 const app = express();
 const PORT = process.env.PORT;
+
+app.use(cors())
 
 //we will contain our getaways within ach of these locations
 app.locals.MIN_LAT=33.694439;

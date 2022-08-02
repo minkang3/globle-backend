@@ -1,4 +1,5 @@
 # Globle Backend #
+First Place in LA Hack's Best Getaway Hack
 ## Authors ##
 - Elliot Lee
 - Pushu Zhang

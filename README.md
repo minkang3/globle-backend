@@ -62,7 +62,7 @@ a post endpoint that needs the latitude and longitude of the player's location,
 
 
 ## Goals ##
-the overall goal of this server is to manage the logic of the globle app. this shoiuld perform all of the calculations, EXCLUDING distance. Each new globle location is calculated here, so are the amount of persons in the area of the globle location. In the future we may want a notion of accounts and users in order to keep track of their awards and achievements. I have not thought about that, but it would require some type of databasing.
+The overall goal of this server is to manage the logic of the globle app. this should perform all of the calculations, EXCLUDING distance. Each new globle location is calculated here, so are the amount of persons in the area of the globle location. In the future we may want a notion of accounts and users in order to keep track of their awards and achievements. I have not thought about that, but it would require some type of databasing.
 Again, the distance from the user's globle location will be calculated client side so that it can be updated in real time, faster than we are able to process server requests.
 
 ## See Also ##
